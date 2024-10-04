@@ -1,92 +1,98 @@
 import { Link } from "react-router-dom";
 import Section from "./components/Section";
+import Button from "./components/Button";
+import Title from "./components/Title";
+import { BluetoothOffIcon, CircleCheck } from "lucide-react";
+import { advantages, maxDiscount, products, saveTips } from "./data";
 
 const Page = () => {
-  const products = [
-    {
-      id: 1,
-      name: "Guloseimas de Fruta Orgânicas Bunny",
-      price: "4.19",
-      discount: "30",
-      imageUrl:
-        "https://img.thrivemarket.com/custom_assets/2807a31006b30f760c53e166d889c4b7.jpg?w=322&jpg_quality=90",
-    },
-    {
-      id: 2,
-      name: "Sopa Orgânica de Lentilhas",
-      price: "2.99",
-      discount: "40",
-      imageUrl:
-        "https://img.thrivemarket.com/custom_assets/630de056127be7daccf9c5f666bf3f8e.jpg?w=322&jpg_quality=90",
-    },
-    {
-      id: 3,
-      name: "Molho de Macarrão Marinara",
-      price: "7.49",
-      discount: "25",
-      imageUrl:
-        "https://img.thrivemarket.com/custom_assets/09a5ac338b92b7c2117ff5dc23275e58.jpg?w=322&jpg_quality=90",
-    },
-    {
-      id: 4,
-      name: "Cereal Low Carb de Chocolate Amargo",
-      price: "7.99",
-      discount: "10",
-      imageUrl:
-        "https://img.thrivemarket.com/custom_assets/5b963277ac66db38ffcc407eb2613ff6.jpg?w=322&jpg_quality=90",
-    },
-    {
-      id: 5,
-      name: "Muesli Estilo Tradicional",
-      price: "6.99",
-      discount: "30",
-      imageUrl:
-        "https://img.thrivemarket.com/custom_assets/22aa0ba29299c8f8ce5f814d22c17781.jpg?w=322&jpg_quality=90",
-    },
-    {
-      id: 6,
-      name: "Azeite de Oliva Extra Virgem",
-      price: "10.49",
-      discount: "20",
-      imageUrl:
-        "https://img.thrivemarket.com/custom_assets/5cb1a819858b6ca216bf3006862fb572.jpg?w=322&jpg_quality=90",
-    },
-  ];
-
-  const maxDiscount = products.reduce((max, product) => {
-    const discountValue = parseInt(product.discount, 10);
-    return discountValue > max ? discountValue : max;
-  }, 0);
-
   return (
-    <div className="flex flex-col font-work text-[#333333] bg-[#FAF3EF]">
-      <span className="w-full py-3 text-base text-center bg-[#D1FCE2]">
-        Oferta especial: Ganhe <b>R$60 GRÁTIS</b> hoje!
-      </span>
-      <header className="flex items-center px-8 py-4 gap-6">
-        <Link to={"/mercado-vivo"}>
-          <img
-            src="/mercado-vivo/logo.png"
-            alt="mercado-vivo logo"
-            width={128}
-            className="bg-cover"
-          />
-        </Link>
-        <nav className="flex items-center gap-6 text-lg">
-          <Link to={"/mercado-vivo"}>Como Funciona</Link>
-          <Link to={"/mercado-vivo"}>Garantia de Economia</Link>
-          <Link to={"/mercado-vivo"}>Promoção Ativa</Link>
-        </nav>
-      </header>
-      <main>
+    <div className="min-h-screen flex flex-col font-work text-[#333333] bg-[#FAF3EF]">
+      <div className="sticky z-30 flex flex-col top-0">
+        <span className="py-3 text-base text-center bg-[#D1FCE2]">
+          Oferta especial: Ganhe <b>R$60 GRÁTIS</b> hoje!
+        </span>
+        <header className="flex items-center md:px-8 xl:px-12 py-4 md:gap-6 xl:gap-12 bg-[#FAF3EF]">
+          <Link to={"/mercado-vivo"}>
+            <img
+              src="/mercado-vivo/logo.png"
+              alt="mercado-vivo logo"
+              width={96}
+              className="bg-cover"
+            />
+          </Link>
+          <nav className="flex items-center md:gap-6 xl:gap-12 text-lg">
+            <Link to={"/mercado-vivo"}>Como Funcionamos</Link>
+            <Link to={"/mercado-vivo"}>Economia Consciente</Link>
+            <Link to={"/mercado-vivo"}>Nossos Produtos</Link>
+          </nav>
+        </header>
+      </div>
+      <main className="flex flex-col gap-6">
+        <div className="relative flex items-center justify-center h-[512px] overflow-hidden">
+          <div className="relative z-20 flex flex-col gap-4 xl:gap-12 items-center">
+            <h1 className="font-dm text-4xl xl:text-6xl text-center text-white">
+              Cansado dos preços altos dos supermercados?
+            </h1>
+            <Button>Com Certeza!</Button>
+          </div>
+          <video
+            autoPlay
+            muted
+            loop
+            src="/mercado-vivo/hero.mp4"
+            className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
+          ></video>
+        </div>
+        <Section>
+          <div className="flex flex-col lg:flex-row gap-4 lg:justify-between">
+            <Title start>
+              Nós somos diferentes das <br className="hidden lg:block" /> lojas
+              de supermercado & das <br className="hidden lg:block" />
+              grandes redes de varejo.
+            </Title>
+            <ul className="flex flex-col items-start gap-2">
+              {advantages.map((a, i) => (
+                <li key={i} className="flex items-center gap-1">
+                  <CircleCheck fill="#097671" stroke="#FFFFFF" size={32} />
+                  <p className="w-full">{a}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Section>
         <Section
-          title={`Economize até ${maxDiscount}% em produtos orgânicos e não transgênicos!`}
+          title="Economize em mais de 5.000 produtos saudáveis e orgânicos."
+          solid
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 justify-between">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {saveTips.map((st, i) => (
+              <div
+                key={i}
+                style={{ backgroundColor: st.color }}
+                className="w-full flex items-center lg:justify-between rounded-xl"
+              >
+                <img
+                  src={st.imgUrl}
+                  alt="imagem de produtos Mercado Vivo"
+                  className="w-52 h-5w-52 object-cover rounded-tl-xl rounded-bl-xl"
+                />
+                <div className="flex flex-col gap-1 pr-4 text-lg">
+                  <b className=" lg:max-w-xs xl:max-w-lg">{st.title}</b>
+                  <p className="lg:max-w-xs xl:max-w-lg">{st.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Section>
+        <Section
+          title={`Economize até ${maxDiscount}% em produtos orgânicos & não transgênicos!`}
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-8 items-start justify-center">
             {products.map((p) => (
               <div
                 key={p.id}
-                className="w-max flex flex-col p-4 gap-2 rounded-xl items-center bg-white"
+                className="w-full h-full flex flex-col p-4 gap-2 rounded-xl items-center bg-white"
               >
                 <img
                   src={p.imageUrl}
@@ -100,10 +106,13 @@ const Page = () => {
                     {p.discount}% OFF
                   </span>
                   <b className="text-lg">R${p.price}</b>
-                  <h3 className="w-40">{p.name}</h3>
+                  <h3>{p.name}</h3>
                 </div>
               </div>
             ))}
+          </div>
+          <div className="flex justify-center">
+            <Button>Economize Agora</Button>
           </div>
         </Section>
       </main>
