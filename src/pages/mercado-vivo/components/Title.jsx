@@ -13,7 +13,7 @@ const Title = ({ children, start }) => {
 };
 
 Title.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   start: PropTypes.bool,
 };
 
