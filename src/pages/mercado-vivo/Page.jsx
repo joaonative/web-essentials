@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Section from "./components/Section";
 import Button from "./components/Button";
 import Title from "./components/Title";
-import { BluetoothOffIcon, CircleCheck } from "lucide-react";
+import { CircleCheck } from "lucide-react";
 import { advantages, maxDiscount, products, saveTips } from "./data";
 
 const Page = () => {
