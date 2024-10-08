@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import Title from "./Title";
 
-const Section = ({ title, children, solid }) => {
+const Section = ({ title, id, children, solid }) => {
   return (
     <section
-      className={`flex flex-col px-4 md:px-8 xl:px-12 gap-6 py-4 ${
+      id={id}
+      className={`flex flex-col px-4 md:px-8 xl:px-12 gap-6 py-4 mt-12 ${
         solid && "bg-white"
       }`}
     >
@@ -16,6 +17,7 @@ const Section = ({ title, children, solid }) => {
 
 Section.propTypes = {
   title: PropTypes.string,
+  id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   solid: PropTypes.bool,
 };

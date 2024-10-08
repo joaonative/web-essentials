@@ -35,13 +35,13 @@ const Page = () => {
               isOpen ? "flex" : "hidden"
             } md:flex flex-col md:flex-row md:items-center gap-4 md:gap-6 xl:gap-12 text-lg`}
           >
-            <Link to={"/mercado-vivo"}>Nossos Produtos</Link>
-            <Link to={"/mercado-vivo"}>Economia Consciente</Link>
-            <Link to={"/mercado-vivo"}>Quem Somos</Link>
+            <a href={"#products"}>Nossos Produtos</a>
+            <a href={"#savings"}>Economia Consciente</a>
+            <a href={"#about"}>Quem Somos</a>
           </nav>
         </header>
       </div>
-      <main className="flex flex-col gap-6">
+      <main>
         <div className="relative flex items-center justify-center h-[512px] overflow-hidden">
           <div className="relative z-20 flex flex-col gap-4 xl:gap-12 items-center">
             <h1 className="font-dm text-4xl xl:text-6xl text-center text-white">
@@ -58,6 +58,7 @@ const Page = () => {
           ></video>
         </div>
         <Section
+          id="products"
           title={`Economize até ${maxDiscount}% em produtos orgânicos & não transgênicos!`}
         >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-8 items-start justify-center">
@@ -89,6 +90,7 @@ const Page = () => {
         </Section>
 
         <Section
+          id="savings"
           title="Economize em mais de 5.000 produtos saudáveis e orgânicos."
           solid
         >
@@ -112,7 +114,7 @@ const Page = () => {
             ))}
           </div>
         </Section>
-        <Section>
+        <Section id="about">
           <div className="flex flex-col lg:flex-row gap-4 lg:justify-between">
             <Title start>
               Nós somos diferentes das <br className="hidden lg:block" /> lojas
@@ -129,7 +131,7 @@ const Page = () => {
             </ul>
           </div>
         </Section>
-        <Section title={"Perguntas Frequentes"}>
+        <Section id="faqs" title={"Perguntas Frequentes"}>
           {faqs.map((faq, i) => {
             const isOpen = openFaqIndex === i;
             return (
