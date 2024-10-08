@@ -122,3 +122,21 @@ export const saveTips = [
     imgUrl: "/mercado-vivo/abt6.webp",
   },
 ];
+
+export const faqs = [
+  {
+    title: "Quais são os benefícios de ser membro do Mercado Vivo?",
+    content:
+      "Economiza até 30% em relação ao preço sugerido pelo fabricante em uma seleção de centenas de marcas saudáveis, orgânicas e sustentáveis, todas escolhidas por nossos especialistas internos. Tem acesso a promoções exclusivas, descontos semanais e brindes com a compra — tudo apenas para membros. Recebe envio rápido, conveniente e neutro em carbono em todos os pedidos.",
+  },
+  {
+    title: "Como o Mercado Vivo garante que eu economizarei dinheiro?",
+    content:
+      "Como o Mercado Vivo garante que eu economizarei dinheiro? Nossa Garantia de Preço Baixo assegura que você encontrará ótimos preços em todos os produtos que vendemos. Isso significa que, se você encontrar um preço menor em outro lugar, nós igualaremos. Veja os termos aqui. Além disso, com sua adesão, você economiza até 30% em relação ao preço sugerido pelo fabricante em cada produto, além de ter acesso a promoções, ofertas, brindes e descontos exclusivos para membros.",
+  },
+  {
+    title: "Qual é o custo da adesão ao Mercado Vivo?",
+    content:
+      "Junte-se hoje por R$ 5 por mês, com pagamento anual, ou R$ 12 por mês, com pagamento mensal. Os membros anuais podem cancelar a qualquer momento dentro de 30 dias e receber um reembolso total.",
+  },
+];

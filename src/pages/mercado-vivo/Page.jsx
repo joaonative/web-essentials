@@ -2,12 +2,14 @@ import { Link } from "react-router-dom";
 import Section from "./components/Section";
 import Button from "./components/Button";
 import Title from "./components/Title";
-import { CircleCheck, Menu, X } from "lucide-react";
-import { advantages, maxDiscount, products, saveTips } from "./data";
+import { ChevronDown, ChevronUp, CircleCheck, Menu, X } from "lucide-react";
+import { advantages, faqs, maxDiscount, products, saveTips } from "./data";
 import { useState } from "react";
 
 const Page = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
   return (
     <div className="min-h-screen flex flex-col font-work text-[#333333] bg-[#FAF3EF]">
       <div className="sticky z-30 flex flex-col top-0">
@@ -126,6 +128,30 @@ const Page = () => {
               ))}
             </ul>
           </div>
+        </Section>
+        <Section title={"Perguntas Frequentes"}>
+          {faqs.map((faq, i) => {
+            const isOpen = openFaqIndex === i;
+            return (
+              <div
+                key={i}
+                onClick={() => setOpenFaqIndex(isOpen ? null : i)}
+                className="cursor-pointer flex flex-col gap-2 p-4 rounded-xl bg-white"
+              >
+                <div className="flex items-center justify-between">
+                  <h4 className="md:text-lg">{faq.title}</h4>
+                  <span className="w-max">
+                    {isOpen ? (
+                      <ChevronUp size={32} />
+                    ) : (
+                      <ChevronDown size={32} />
+                    )}
+                  </span>
+                </div>
+                {isOpen && <p>{faq.content}</p>}
+              </div>
+            );
+          })}
         </Section>
       </main>
     </div>
