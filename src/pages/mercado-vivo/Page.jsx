@@ -31,11 +31,11 @@ const Page = () => {
           <nav
             className={`${
               isOpen ? "flex" : "hidden"
-            } md:flex flex-col md:flex-row md:items-center gap-4 md:gap-6 xl:gap-12 font-semibold text-lg`}
+            } md:flex flex-col md:flex-row md:items-center gap-4 md:gap-6 xl:gap-12 text-lg`}
           >
-            <Link to={"/mercado-vivo"}>Como Funcionamos</Link>
-            <Link to={"/mercado-vivo"}>Economia Consciente</Link>
             <Link to={"/mercado-vivo"}>Nossos Produtos</Link>
+            <Link to={"/mercado-vivo"}>Economia Consciente</Link>
+            <Link to={"/mercado-vivo"}>Quem Somos</Link>
           </nav>
         </header>
       </div>
@@ -55,47 +55,6 @@ const Page = () => {
             className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
           ></video>
         </div>
-        <Section>
-          <div className="flex flex-col lg:flex-row gap-4 lg:justify-between">
-            <Title start>
-              Nós somos diferentes das <br className="hidden lg:block" /> lojas
-              de supermercado & das <br className="hidden lg:block" />
-              grandes redes de varejo.
-            </Title>
-            <ul className="flex flex-col items-start gap-2">
-              {advantages.map((a, i) => (
-                <li key={i} className="flex items-center gap-1">
-                  <CircleCheck fill="#097671" stroke="#FFFFFF" size={32} />
-                  <p className="w-full">{a}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Section>
-        <Section
-          title="Economize em mais de 5.000 produtos saudáveis e orgânicos."
-          solid
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {saveTips.map((st, i) => (
-              <div
-                key={i}
-                style={{ backgroundColor: st.color }}
-                className="w-full flex flex-col md:flex-row items-center p-2 md:p-0 gap-2 lg:justify-between rounded-xl"
-              >
-                <img
-                  src={st.imgUrl}
-                  alt="imagem de produtos Mercado Vivo"
-                  className="w-32 h-32 md:w-52 md:h-52 object-cover rounded-tl-xl rounded-bl-xl"
-                />
-                <div className="flex flex-col gap-1 pr-4 text-lg">
-                  <b className=" lg:max-w-xs xl:max-w-lg">{st.title}</b>
-                  <p className="lg:max-w-xs xl:max-w-lg">{st.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Section>
         <Section
           title={`Economize até ${maxDiscount}% em produtos orgânicos & não transgênicos!`}
         >
@@ -124,6 +83,48 @@ const Page = () => {
           </div>
           <div className="flex justify-center">
             <Button>Economize Agora</Button>
+          </div>
+        </Section>
+
+        <Section
+          title="Economize em mais de 5.000 produtos saudáveis e orgânicos."
+          solid
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {saveTips.map((st, i) => (
+              <div
+                key={i}
+                style={{ backgroundColor: st.color }}
+                className="w-full flex flex-col md:flex-row items-center p-2 md:p-0 gap-2 lg:justify-between rounded-xl"
+              >
+                <img
+                  src={st.imgUrl}
+                  alt="imagem de produtos Mercado Vivo"
+                  className="w-32 h-32 md:w-52 md:h-52 object-cover rounded-tl-xl rounded-bl-xl"
+                />
+                <div className="flex flex-col gap-1 pr-4 text-lg">
+                  <b className=" lg:max-w-xs xl:max-w-lg">{st.title}</b>
+                  <p className="lg:max-w-xs xl:max-w-lg">{st.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Section>
+        <Section>
+          <div className="flex flex-col lg:flex-row gap-4 lg:justify-between">
+            <Title start>
+              Nós somos diferentes das <br className="hidden lg:block" /> lojas
+              de supermercado & das <br className="hidden lg:block" />
+              grandes redes de varejo.
+            </Title>
+            <ul className="flex flex-col items-start gap-2">
+              {advantages.map((a, i) => (
+                <li key={i} className="flex items-center gap-1">
+                  <CircleCheck fill="#097671" stroke="#FFFFFF" size={32} />
+                  <p className="w-full">{a}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </Section>
       </main>
