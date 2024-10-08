@@ -4,11 +4,23 @@ import Button from "./components/Button";
 import Title from "./components/Title";
 import { ChevronDown, ChevronUp, CircleCheck, Menu, X } from "lucide-react";
 import { advantages, faqs, maxDiscount, products, saveTips } from "./data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Page = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  useEffect(() => {
+    if (location.pathname === "/mercado-vivo") {
+      document.title = "Mercado Vivo";
+      const link =
+        document.querySelector("link[rel*='icon']") ||
+        document.createElement("link");
+      link.rel = "icon";
+      link.href = "/mercado-vivo/favicon.ico";
+      document.head.appendChild(link);
+    }
+  });
 
   return (
     <div className="min-h-screen flex flex-col font-work text-[#333333] bg-[#FAF3EF]">
