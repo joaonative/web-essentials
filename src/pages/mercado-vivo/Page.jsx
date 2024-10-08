@@ -2,26 +2,37 @@ import { Link } from "react-router-dom";
 import Section from "./components/Section";
 import Button from "./components/Button";
 import Title from "./components/Title";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, Menu, X } from "lucide-react";
 import { advantages, maxDiscount, products, saveTips } from "./data";
+import { useState } from "react";
 
 const Page = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="min-h-screen flex flex-col font-work text-[#333333] bg-[#FAF3EF]">
       <div className="sticky z-30 flex flex-col top-0">
         <span className="py-3 text-base text-center bg-[#D1FCE2]">
           Oferta especial: Ganhe <b>R$60 GRÁTIS</b> hoje!
         </span>
-        <header className="flex items-center md:px-8 xl:px-12 py-4 md:gap-6 xl:gap-12 bg-[#FAF3EF]">
-          <Link to={"/mercado-vivo"}>
-            <img
-              src="/mercado-vivo/logo.png"
-              alt="mercado-vivo logo"
-              width={96}
-              className="bg-cover"
-            />
-          </Link>
-          <nav className="flex items-center md:gap-6 xl:gap-12 text-lg">
+        <header className="flex flex-col md:flex-row md:items-center px-4 md:px-8 xl:px-12 py-4 gap-4 md:gap-6 xl:gap-12 bg-[#FAF3EF]">
+          <div className="flex items-center justify-between">
+            <Link to={"/mercado-vivo"}>
+              <img
+                src="/mercado-vivo/logo.png"
+                alt="mercado-vivo logo"
+                width={96}
+                className="bg-cover"
+              />
+            </Link>
+            <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X size={32} /> : <Menu size={32} />}
+            </button>
+          </div>
+          <nav
+            className={`${
+              isOpen ? "flex" : "hidden"
+            } md:flex flex-col md:flex-row md:items-center gap-4 md:gap-6 xl:gap-12 font-semibold text-lg`}
+          >
             <Link to={"/mercado-vivo"}>Como Funcionamos</Link>
             <Link to={"/mercado-vivo"}>Economia Consciente</Link>
             <Link to={"/mercado-vivo"}>Nossos Produtos</Link>
@@ -70,12 +81,12 @@ const Page = () => {
               <div
                 key={i}
                 style={{ backgroundColor: st.color }}
-                className="w-full flex items-center lg:justify-between rounded-xl"
+                className="w-full flex flex-col md:flex-row items-center p-2 md:p-0 gap-2 lg:justify-between rounded-xl"
               >
                 <img
                   src={st.imgUrl}
                   alt="imagem de produtos Mercado Vivo"
-                  className="w-52 h-5w-52 object-cover rounded-tl-xl rounded-bl-xl"
+                  className="w-32 h-32 md:w-52 md:h-52 object-cover rounded-tl-xl rounded-bl-xl"
                 />
                 <div className="flex flex-col gap-1 pr-4 text-lg">
                   <b className=" lg:max-w-xs xl:max-w-lg">{st.title}</b>
