@@ -32,13 +32,18 @@ const Page = () => {
           <div className="flex items-center justify-between">
             <Link to={"/mercado-vivo"}>
               <img
+                loading="lazy"
                 src="/mercado-vivo/logo.png"
                 alt="mercado-vivo logo"
                 width={96}
                 className="bg-cover"
               />
             </Link>
-            <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+            <button
+              aria-label="abrir ou fechar menu de navegação"
+              className="md:hidden"
+              onClick={() => setIsOpen(!isOpen)}
+            >
               {isOpen ? <X size={32} /> : <Menu size={32} />}
             </button>
           </div>
@@ -80,6 +85,7 @@ const Page = () => {
                 className="w-full h-full flex flex-col p-4 gap-2 rounded-xl items-center bg-white"
               >
                 <img
+                  loading="lazy"
                   src={p.imageUrl}
                   alt={p.name}
                   width={160}
@@ -114,6 +120,7 @@ const Page = () => {
                 className="w-full flex flex-col md:flex-row items-center p-2 md:p-0 gap-2 lg:justify-between rounded-xl"
               >
                 <img
+                  loading="lazy"
                   src={st.imgUrl}
                   alt="imagem de produtos Mercado Vivo"
                   className="w-32 h-32 md:w-52 md:h-52 object-cover rounded-tl-xl rounded-bl-xl"
@@ -153,7 +160,7 @@ const Page = () => {
                 className="cursor-pointer flex flex-col gap-2 p-4 rounded-xl bg-white"
               >
                 <div className="flex items-center justify-between">
-                  <h4 className="md:text-lg">{faq.title}</h4>
+                  <p className="md:text-lg">{faq.title}</p>
                   <span className="w-max">
                     {isOpen ? (
                       <ChevronUp size={32} />
