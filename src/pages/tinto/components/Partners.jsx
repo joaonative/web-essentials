@@ -1,6 +1,6 @@
 const Partners = () => {
   return (
-    <div className="px-12 py-8 flex items-center justify-between bg-violet-500">
+    <div className="md:px-12 py-4 md:py-8 flex flex-col md:flex-row items-center gap-8 md:justify-between bg-violet-500">
       <img src="/tinto/bonappetit.svg" alt="" width={196} />
       <img src="/tinto/buzzfeed.svg" alt="" width={196} />
       <img src="/tinto/fastcompany.svg" alt="" width={196} />

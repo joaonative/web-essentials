@@ -6,7 +6,7 @@ export default {
       fontFamily: {
         work: ["Work Sans", "sans-serif"],
         dm: ["DM Serif Display", "serif"],
-        poppins: ["Poppins", "sans-serif"],
+        poppins: ["Poppins", "serif"],
         noto: ["Noto Serif", "serif"],
       },
     },

@@ -5,7 +5,9 @@ const Section = ({ children, title, start, solid, id }) => {
   return (
     <section
       id={id}
-      className={`${solid && "bg-violet-500"} flex flex-col px-12 gap-4`}
+      className={`${
+        solid && "bg-violet-500"
+      } flex flex-col px-4 sm:px-8 md:px-12 gap-8`}
     >
       <div className={`${start ? "text-start" : "text-center"} text-white`}>
         {title && <Title>{title}</Title>}
